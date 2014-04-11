@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>{$pageTitle|ucfirst} | Mule</title>
+    <title>{$pageTitle|ucfirst} | Varena</title>
     <meta charset="utf-8">
     {foreach from=$cssFiles item=cssFile}
       <link type="text/css" href="{$wwwRoot}css/{$cssFile}" rel="stylesheet"/>
@@ -12,7 +12,7 @@
   </head>
 
   <body>
-    <div class="title">Mule</div>
+    <div class="title">Varena</div>
 
     <div class="menu">
       <ul>

@@ -1,1 +1,1 @@
-<h3>{"Mule is working for you!"|_}</h3>
+<h3>{"Varena is working for you!"|_}</h3>

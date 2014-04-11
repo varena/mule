@@ -2,7 +2,7 @@
 
 ; Database connection
 ; database = "mysql://user[:password]@host/database"
-database = "mysql://root@localhost/mule"
+database = "mysql://root@localhost/varena"
 
 ; Locale for localized formats
 locale = ro_RO.utf8
@@ -16,10 +16,10 @@ loginCookieName = rememberMe
 enabled = false
 
 ; From address when sending emails
-fromHeader = "From: Mule <email@example.com>"
+fromHeader = "From: Varena <email@example.com>"
 
 ; Reply-to address when sending emails
-replyToHeader = "Reply-To: Mule <email@example.com>"
+replyToHeader = "Reply-To: Varena <email@example.com>"
 
 ; signature line at the end of outgoing emails
-signature = "The Mule team"
+signature = "The Varena team"

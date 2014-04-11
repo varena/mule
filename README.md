@@ -8,6 +8,11 @@ Installation and contributions
 
 For simplicity, we will not follow the normal development process (fork -> modify -> commit -> submit a pull request). Instead, we will add contributors to the organization so they can work on this repository. If you are familiar with forks and pull requests, you are welcome to do that too.
 
+* We asume an install under `/var/www/varena`. Give yourself permissions to write there first:
+
+        $ cd /var/www
+        $ sudo chown yourname.yourname .
+
 * Get a copy of the code:
 
         $ git clone https://github.com/varena/varena
@@ -21,7 +26,7 @@ For simplicity, we will not follow the normal development process (fork -> modif
 
         $ mysql -u root -e 'create database varena charset utf8'
 
-* Modify mule.conf to reflect your locale, database config etc.
+* Edit the file mule.conf to reflect your locale, database config etc.
 * Apply any patches to bring the database schema to date:
 
         $ php tools/migration.php
@@ -35,19 +40,8 @@ For simplicity, we will not follow the normal development process (fork -> modif
 
           # a2enmod rewrite
 
-  * Enable the userdir module if you're working under ~/public_html/
-
-          # a2enmod userdir
-
   * Modify the relevant config file to allow .htaccess files:
 
-          # for userdir installations the file is usually /etc/apache2/mods-available/userdir.conf
-          <Directory /home/*/public_html>
-              ...
-              AllowOverride All
-              ...
-          </Directory>
-          
           # for document root installations the file is usually /etc/apache2/sites-available/default
           <Directory /var/www/>
               ...
@@ -58,6 +52,8 @@ For simplicity, we will not follow the normal development process (fork -> modif
   * Restart Apache:
 
           # /etc/init.d/apache2 restart
+
+  * Visit <http://localhost/varena/www>. It should work!          
 
 
 Localization (for users)

@@ -1,4 +1,4 @@
-mule
+Varena
 ====
 
 Varena is a website program for hosting programming problems. It is based on [mule](https://github.com/CatalinFrancu/mule), a very lightweight framework.

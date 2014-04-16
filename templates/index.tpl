@@ -1,6 +1,6 @@
 <h3>{"Varena is working for you!"|_}</h3>
 
-Probleme:
+{"Problems:"|_}
 
 <ul>
   {foreach from=$problems item=p}

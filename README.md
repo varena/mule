@@ -105,7 +105,7 @@ We use poedit for translation. It needs some light customization for the Smarty 
 * Under Edit -> Preferences -> Parsers, hit New to add a new Parser. Set these values:
   * language: Smarty
   * extensions = *.tpl
-  * parser command = php /path/to/tplParser.php %o %F
+  * parser command = php /var/www/varena/tools/tplParser.php %o %F
   * an item in input files list = %f
 
 To do the actual translation:

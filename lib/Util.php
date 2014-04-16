@@ -12,6 +12,7 @@ class Util {
   
   static function init() {
     ini_set('display_errors', 'On');
+    ini_set('error_reporting', E_ALL);
     self::definePaths();
     spl_autoload_register('self::autoloadClasses');
     Config::load(self::$rootPath . "/mule.conf");

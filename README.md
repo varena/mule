@@ -8,41 +8,42 @@ Installation and contributions
 
 For simplicity, we will not follow the normal development process (fork -> modify -> commit -> submit a pull request). Instead, we will add contributors to the organization so they can work on this repository. If you are familiar with forks and pull requests, you are welcome to do that too.
 
+* If you are new to GNU/Linux, try Ubuntu or Mint -- they are easy to get up and running. Here are the packages you need after a fresh install:
+
+        sudo apt-get install apache2 libapache2-mod-php5 git mysql-client mysql-server php5 php5-mysql
+
 * We asume an install under `/var/www/varena`. Give yourself permissions to write there first:
 
-        $ cd /var/www
-        $ sudo chown yourname.yourname .
+        cd /var/www
+        sudo chown yourname.yourname .
 
 * Get a copy of the code:
 
-        $ git clone https://github.com/varena/varena
+        git clone https://github.com/varena/varena
+        cd varena
 
 * Some light local configuration:
 
-        $ cd varena
-        $ tools/setup.sh
+        tools/setup.sh
 
 * Create the database (adapt to suit your needs; remove -p if root lacks password):
 
-        $ mysql -u root -e -p 'create database varena charset utf8'
+        mysql -u root -e -p 'create database varena charset utf8'
 
 * Edit the file mule.conf to reflect your locale, database config etc.
 * Apply any patches to bring the database schema to date:
 
-        $ php tools/migration.php
+        php tools/migration.php
 
-* Depending on your HTTP server and installation path, you may need to enable and configure various modules: userdir, rewrite, PHP. Suggested changes (for Ubuntu / Linux Mint, everything as sudo):
-  * Install mod-php5.
-
-          # apt-get install libapache2-mod-php5
-
+* Depending on your HTTP server and installation path, you may need to enable and configure various modules: userdir, rewrite, PHP. Suggested changes for Ubuntu / Mint:
   * Enable the rewrite module. This is only used to hide .php extensions in URLs
 
-          # a2enmod rewrite
+          sudo a2enmod rewrite
 
-  * Modify the relevant config file to allow .htaccess files:
+  * Make sure the DocumentRoot is /var/www, not /var/www/html or something else. This is usually specified in /etc/apache2/apache2.conf or /etc/apache2/sites-available/000-default etc.
 
-          # for document root installations the file is usually /etc/apache2/sites-available/default
+  * Modify the relevant config file to allow .htaccess files. For ocument root installations the file is usually /etc/apache2/sites-available/default or 000-default.
+
           <Directory /var/www/>
               ...
               AllowOverride All
@@ -51,7 +52,7 @@ For simplicity, we will not follow the normal development process (fork -> modif
 
   * Restart Apache:
 
-          # /etc/init.d/apache2 restart
+          sudo /etc/init.d/apache2 restart
 
   * Visit <http://localhost/varena/www>. It should work!          
 
@@ -104,7 +105,7 @@ We use poedit for translation. It needs some light customization for the Smarty 
 * Under Edit -> Preferences -> Parsers, hit New to add a new Parser. Set these values:
   * language: Smarty
   * extensions = *.tpl
-  * parser command = php /path/to/tplParser.php %o %F
+  * parser command = php /var/www/varena/tools/tplParser.php %o %F
   * an item in input files list = %f
 
 To do the actual translation:

@@ -22,9 +22,9 @@ For simplicity, we will not follow the normal development process (fork -> modif
         $ cd varena
         $ tools/setup.sh
 
-* Create the database (adapt to suit your needs):
+* Create the database (adapt to suit your needs; remove -p if root lacks password):
 
-        $ mysql -u root -e 'create database varena charset utf8'
+        $ mysql -u root -e -p 'create database varena charset utf8'
 
 * Edit the file mule.conf to reflect your locale, database config etc.
 * Apply any patches to bring the database schema to date:

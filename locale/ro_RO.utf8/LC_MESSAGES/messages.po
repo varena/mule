@@ -1,17 +1,17 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Mule 0.2\n"
+"Project-Id-Version: Varena 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-11 15:28+0200\n"
-"PO-Revision-Date: 2014-04-11 15:29+0200\n"
+"POT-Creation-Date: 2014-04-16 15:21+0200\n"
+"PO-Revision-Date: 2014-04-16 15:21+0200\n"
 "Last-Translator: Cătălin Frâncu <cata@francu.com>\n"
-"Language-Team:  <cata@francu.com>\n"
+"Language-Team:  <dev@varena.ro>\n"
 "Language: ro_RO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
-"X-Poedit-Basepath: /home/cata/public_html/mule\n"
+"X-Poedit-Basepath: ../../../\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: lib\n"
@@ -50,13 +50,30 @@ msgstr "Acest nume de utilizator este deja folosit."
 msgid "The email address is invalid."
 msgstr "Adresa de e-mail este incorectă."
 
-#: www/index.php:5
+#: www/index.php:7
 msgid "Home page"
 msgstr "Pagina principală"
 
-#: www/auth/login.php:22 templates/layout.tpl:25
-msgid "OpenID login"
-msgstr "conectare cu OpenID"
+#: www/problem.php:10
+msgid "Requested problem not found."
+msgstr "Problema cerută nu există."
+
+#: www/problem.php:14
+#, php-format
+msgid "Problem: %s"
+msgstr "Problema %s"
+
+#: www/auth/account.php:36
+msgid "Could not find your OpenID; did you really log in?"
+msgstr "Nu ți-am putut găsi OpenID-ul; chiar te-ai conectat?"
+
+#: www/auth/account.php:49
+msgid "Changes saved."
+msgstr "Am salvat modificările."
+
+#: www/auth/account.php:58 templates/layout.tpl:22
+msgid "my account"
+msgstr "contul meu"
 
 #: www/auth/openidReturn.php:17
 msgid "New OpenID linked to your account."
@@ -78,17 +95,9 @@ msgstr ""
 msgid "Please pick a username to complete your login."
 msgstr "Alege-ți un nume de utilizator pentru a completa conectarea."
 
-#: www/auth/account.php:36
-msgid "Could not find your OpenID; did you really log in?"
-msgstr "Nu ți-am putut găsi OpenID-ul; chiar te-ai conectat?"
-
-#: www/auth/account.php:49
-msgid "Changes saved."
-msgstr "Am salvat modificările."
-
-#: www/auth/account.php:58 templates/layout.tpl:22
-msgid "my account"
-msgstr "contul meu"
+#: www/auth/login.php:22 templates/layout.tpl:25
+msgid "OpenID login"
+msgstr "conectare cu OpenID"
 
 #: www/auth/emailLogin.php:17
 msgid "Please enter an email address."
@@ -124,10 +133,6 @@ msgstr "Conectare prin e-mail"
 msgid "Email login token"
 msgstr "Cod de conectare prin e-mail"
 
-#: templates/index.tpl:1
-msgid "Varena is working for you!"
-msgstr "Varena funcționează!"
-
 #: templates/layout.tpl:19
 msgid "home"
 msgstr "acasă"
@@ -136,26 +141,9 @@ msgstr "acasă"
 msgid "logout"
 msgstr "deconectare"
 
-#: templates/email/emailLogin.tpl:1
-msgid "Hi,"
-msgstr "Bună ziua,"
-
-#: templates/email/emailLogin.tpl:3
-msgid ""
-"You are receiving this message because you requested a one-time login token. "
-"To complete your login, please visit this link within one hour:"
-msgstr ""
-"Primești acest mesaj deoarece ai cerut un cod de conectare de unică "
-"folosință. Pentru a completa conectarea, te rugăm să vizitezi această adresă "
-"în cel mult o oră:"
-
-#: templates/email/emailLogin.tpl:7
-msgid "If you did not request this token, please discard this message."
-msgstr "Dacă nu tu ai cerut codul, te rugăm să ignori acest mesaj."
-
-#: templates/email/emailLogin.tpl:9
-msgid "Thank you,"
-msgstr "Mulțumiri,"
+#: templates/index.tpl:1
+msgid "Varena is working for you!"
+msgstr "Varena funcționează!"
 
 #: templates/auth/beginAuth.tpl:1
 msgid "Redirecting you to your OpenID provider..."
@@ -298,6 +286,27 @@ msgstr "Identități OpenID"
 #: templates/auth/account.tpl:45
 msgid "link another OpenID to this account"
 msgstr "leagă alt OpenID de acest cont"
+
+#: templates/email/emailLogin.tpl:1
+msgid "Hi,"
+msgstr "Bună ziua,"
+
+#: templates/email/emailLogin.tpl:3
+msgid ""
+"You are receiving this message because you requested a one-time login token. "
+"To complete your login, please visit this link within one hour:"
+msgstr ""
+"Primești acest mesaj deoarece ai cerut un cod de conectare de unică "
+"folosință. Pentru a completa conectarea, te rugăm să vizitezi această adresă "
+"în cel mult o oră:"
+
+#: templates/email/emailLogin.tpl:7
+msgid "If you did not request this token, please discard this message."
+msgstr "Dacă nu tu ai cerut codul, te rugăm să ignori acest mesaj."
+
+#: templates/email/emailLogin.tpl:9
+msgid "Thank you,"
+msgstr "Mulțumiri,"
 
 #~ msgid "User %s obtained %d points."
 #~ msgstr "Utilizatorul %s a obținut %d puncte."

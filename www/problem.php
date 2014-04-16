@@ -11,8 +11,6 @@ if (!$p || ($p->status != Problem::STATUS_NORMAL)) {
   Util::redirect(Util::$wwwRoot);
 }
 
-phpinfo();
-
 SmartyWrap::assign('pageTitle', sprintf(_('Problem: %s'), $p->name));
 SmartyWrap::assign('problem', $p);
 SmartyWrap::display('problem.tpl');

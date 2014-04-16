@@ -1,3 +1,4 @@
 Order Allow,Deny
 Allow from all
+Options +MultiViews
 AddType application/x-httpd-php .php

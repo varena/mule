@@ -31,6 +31,7 @@ For simplicity, we will not follow the normal development process (fork -> modif
         mysql -u root -e -p 'create database varena charset utf8'
 
 * Edit the file mule.conf to reflect your locale, database config etc.
+* That includes specifying the root password, if appropriate (e.g. root:yourpassword@localhost instead of, by default, root@localhost)
 * Apply any patches to bring the database schema to date:
 
         php tools/migration.php

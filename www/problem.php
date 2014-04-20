@@ -13,6 +13,7 @@ if (!$p || ($p->status != Problem::STATUS_NORMAL)) {
 
 SmartyWrap::assign('pageTitle', sprintf(_('Problem: %s'), $p->name));
 SmartyWrap::assign('problem', $p);
+SmartyWrap::assign('author', User::get_by_id($p->userId));
 SmartyWrap::display('problem.tpl');
 
 ?>

@@ -37,7 +37,7 @@ class SmartyWrap {
     // Note the priorities. This allows files to be added in any order, regardless of dependencies
     foreach (func_get_args() as $id) {
       switch($id) {
-      case 'jqueryui':           self::$cssFiles[1] = 'lightness-1.9.2/jquery-ui-1.9.2.custom.min.css'; break;
+      case 'jqueryui':           self::$cssFiles[1] = 'ui-lightness/jquery-ui-1.10.4.min.css'; break;
       case 'main':               self::$cssFiles[2] = 'main.css?v=1'; break;
       default:
         FlashMessage::add("Cannot load CSS file {$id}");
@@ -50,8 +50,8 @@ class SmartyWrap {
     // Note the priorities. This allows files to be added in any order, regardless of dependencies
     foreach (func_get_args() as $id) {
       switch($id) {
-      case 'jquery':           self::$jsFiles[1] = 'jquery-1.8.3.min.js'; break; 
-      case 'jqueryui':         self::$jsFiles[2] = 'jquery-ui-1.9.2.custom.min.js'; break;
+      case 'jquery':           self::$jsFiles[1] = 'jquery-1.11.0.min.js'; break; 
+      case 'jqueryui':         self::$jsFiles[2] = 'jquery-ui-1.10.4.min'; break;
       case 'main':             self::$jsFiles[3] = 'main.js?v=1'; break;
       default:
         FlashMessage::add("Cannot load JS script {$id}");

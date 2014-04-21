@@ -16,6 +16,7 @@ Written 21.04.2014
 /// .-text-. - cell in cadrul liniei
 /// [text](URL) - link (ca in Markup)
 // &[size]text& - schimba marimea textului (de exemplu pt headere)
+// .(URL) - afiseaza imaginea aflata la URL
 
 class SmartMarkup {
 	public static function toHTML($str) {
@@ -61,6 +62,21 @@ class SmartMarkup {
 					} else if($str[$i + 1] == '-') {
 						$i++;
 						$html .= "<td>";
+					} else if($str[$i + 1] == '(') {
+						$url = "";
+						$complete = false;
+						for($j = $i + 2; $j < strlen($str); $j++)
+							if($str[$j] == '\"')
+								$url .= "\\\"";
+							else if($str[$j] == ')') {
+								$complete = true;
+								break;
+							} else $url .= $str[$j];
+						if(!$complete) {
+							$html .= $str[$i];
+							continue;
+						}
+						$html .= "<img src=\"" . $url . "\"\\>";
 					}
 					else $html .= $str[$i];
 				} else if($str[$i] == '&') {

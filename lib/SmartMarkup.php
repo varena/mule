@@ -112,7 +112,7 @@ class SmartMarkup {
 							continue;
 						}
 						$i += strlen($texts . $text) + 2; // sari peste sectiunea dinauntru
-						$html .= "<span style=\"font-size:" . $size . "px\">" . self::toHTML($texts) . "</span>"; // folosim <span> deoarece <size> e deprecat in HTML5
+						$html .= "<span style=\"font-size:" . $size . "px\">" . self::toHTML($text) . "</span>"; // folosim <span> deoarece <size> e deprecat in HTML5
 					}
 					else $html .= $str[$i];
 				} else if($str[$i] == '['){

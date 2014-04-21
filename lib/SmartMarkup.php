@@ -23,7 +23,7 @@ class SmartMarkup {
 		$bold = false;
 		$italic = false;
 		$strike = false;
-		$str .= "  "; // un mic tabulator la sfarsit ca sa prevenim out of bound.
+		//$str .= "  "; // un mic tabulator la sfarsit ca sa prevenim out of bound.
 		for($i = 0; $i < strlen($str); $i++) {
 			if($str[$i] == '\\') {
 				$i++;
@@ -54,7 +54,7 @@ class SmartMarkup {
 						$html .= "<blockquote>";
 					} else if($str[$i + 1] == '[') {
 						$i++;
-						$html .= "<table>";
+						$html .= "<table border=\"1\">";
 					} else if($str[$i + 1] == '|') {
 						$i++;
 						$html .= "<tr>";
@@ -116,7 +116,7 @@ class SmartMarkup {
 						continue;
 					}
 					$complete = false;
-					for($j++; $j < strlen($str); $j++)
+					for($j += 2; $j < strlen($str); $j++)
 						if($str[$j] == '\\') {
 							$j++;
 							$url .= $str[$j];
@@ -124,15 +124,16 @@ class SmartMarkup {
 							$complete = true;
 							break;
 						} else $url .= $str[$j];
-					if(!$complete || $str[$j + 1] != '(') {
+					if(!$complete) {
 						$html .= $str[$i];
 						continue;
 					}
+					$i += strlen($text . $url) + 3;
 					$html .= "<a href=\"" . $url . "\">" . self::toHTML($text) . "</a>";
 				} else if($str[$i + 1] == '.') {
 					if($str[$i] == '/') {
 						$i++;
-						$html .= "</blockquote>"
+						$html .= "</blockquote>";
 					} else if($str[$i] == ']') {
 						$i++;
 						$html .= "</table>";

@@ -11,7 +11,8 @@ if (!$p || ($p->status != Problem::STATUS_NORMAL)) {
   Util::redirect(Util::$wwwRoot);
 }
 
-SmartyWrap::assign('pageTitle', sprintf(_('Problem: %s'), $p->name));
+$p->statement = SmartMarkup::toHTML($p->statement);
+SmartyWrap::assign('pageTitle', sprintf(_('Problem: %s'), $p->name)); // Asta se putea face mai simplu zicand 'Problem: ' . $p->name
 SmartyWrap::assign('problem', $p);
 SmartyWrap::assign('author', User::get_by_id($p->userId));
 SmartyWrap::display('problem.tpl');

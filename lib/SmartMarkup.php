@@ -23,6 +23,7 @@ class SmartMarkup {
 		$bold = false;
 		$italic = false;
 		$strike = false;
+		$str .= "  "; // un mic tabulator la sfarsit ca sa prevenim out of bound.
 		for($i = 0; $i < strlen($str); $i++) {
 			if($str[$i] == '\\') {
 				$i++;
@@ -63,7 +64,71 @@ class SmartMarkup {
 					}
 					else $html .= $str[$i];
 				} else if($str[$i] == '&') {
-				} else if($str[$i] == '('){
+					if($str[$i + 1] == '[') {
+						$texts = "";
+						$size = 0;
+						$text = "";
+						$complete = false;
+						for($j = $i + 2; $j < strlen($str); $j++)
+							if($str[$j] == ']') {
+								$complete = true;
+								break;
+							}
+							else $texts .= $str[$j];
+						if(!$complete) {
+							$html .= $str[$i];
+							continue;
+						}
+						$size = intval($texts); // facem conversia ca sa prevenim insertie de cod
+						$complete = false;
+						for(; $j < strlen($str); $j++)
+							if($str[$j] == '\\') {
+								$text .= $str[$j + 1];
+								$j++;
+								continue;
+							} else if($str[$j] == '&') {
+								$complete = true;
+								break;
+							}
+							else $text .= $str[$j];
+						if(!$complete) {
+							$html .= $str[$i];
+							continue;
+						}
+						$i += strlen($texts . $text) + 2; // sari peste sectiunea dinauntru
+						$html .= "<span style=\"font-size:" . $size . "px\">" . self::toHTML($texts) . "</span>"; // folosim <span> deoarece <size> e deprecat in HTML5
+					}
+					else $html .= $str[$i];
+				} else if($str[$i] == '['){
+					$text = "";
+					$url = "";
+					$complete = false;
+					for($j = $i + 1; $j < strlen($str); $j++)
+						if($str[$j] == '\\') {
+							$j++;
+							$text .= $str[$j];
+						} else if($str[$j] == ']') {
+							$complete = true;
+							break;
+						} else $text .= $str[$j];
+					if(!$complete || $str[$j + 1] != '(') {
+						$html .= $str[$i];
+						continue;
+					}
+					$complete = false;
+					for($j++; $j < strlen($str); $j++)
+						if($str[$j] == '\\') {
+							$j++;
+							$url .= $str[$j];
+						} else if($str[$j] == ')') {
+							$complete = true;
+							break;
+						} else $url .= $str[$j];
+					if(!$complete || $str[$j + 1] != '(') {
+						$html .= $str[$i];
+						continue;
+					}
+					$html .= "<a href=\"" . $url . "\">" . self::toHTML($text) . "</a>";
 				} else if($str[$i + 1] == '.') {
 					if($str[$i] == '/') {
 						$i++;
@@ -79,7 +144,15 @@ class SmartMarkup {
 						$html .= "</td>";
 					}
 					else $html .= $str[$i];
-				}
+				} else if($str[$i] == '<')
+					$html .= "&lt"; // prevenim HTML insertion
+				else if($str[$i] == '>')
+					$html .= "&gt"; // aidoma
+				else if($str[$i] == '\n')
+					if($str[$i + 1] == '\n') {
+						$html .= "<p>";
+						$i++;
+					} else $html .= "<br>";
 				else $html .= $str[$i];
 			}
 		}

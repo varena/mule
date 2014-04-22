@@ -25,6 +25,7 @@ For simplicity, we will not follow the normal development process (fork -> modif
 * Some light local configuration:
 
         tools/setup.sh
+        sudo chmod 755 uploads (or whatever you set your upload dir to)
 
 * Create the database (adapt to suit your needs; remove -p if root lacks password):
 

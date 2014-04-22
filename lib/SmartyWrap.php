@@ -55,7 +55,7 @@ class SmartyWrap {
       case 'main':             self::$jsFiles[3] = 'main.js?v=1'; break;
       default:
         FlashMessage::add("Cannot load JS script {$id}");
-        Util::redirect(Util::$wwRoot);
+        Util::redirect(Util::$wwwRoot);
       }
     }
   }

@@ -26,12 +26,13 @@ class SmartMarkup {
 		$strike = false;
 		//$str .= "  "; // un mic tabulator la sfarsit ca sa prevenim out of bound.
 		for($i = 0; $i < strlen($str); $i++) {
+      $next = ($i < strlen($str) - 1) ? $str[$i + 1] : null;
 			if($str[$i] == '\\') {
 				$i++;
 				$html .= $str[$i];
 			} else {
 				if($str[$i] == '*') {
-					if($str[$i + 1] == '*') {
+					if($next == '*') {
 						$i++;
 						if($italic)
 							$html .= "</i>";
@@ -43,26 +44,26 @@ class SmartMarkup {
 						else $html .= "<b>";
 						$bold = !$bold;
 					}
-				} else if($str[$i] == '~' && $str[$i + 1] == '~') {
+				} else if($str[$i] == '~' && $next == '~') {
 					$i++;
 					if($strike)
 						$html .= "</del>"; // As pune aici o verificare daca e HTML5 sau HTML4, fiindca in HTML5 <strike> e deprecated
 					else $html .= "<del>";
 					$strike = !$strike;
 				} else if($str[$i] == '.') {
-					if($str[$i + 1] == '/') {
+					if($next == '/') {
 						$i++;
 						$html .= "<blockquote>";
-					} else if($str[$i + 1] == '[') {
+					} else if($next == '[') {
 						$i++;
 						$html .= "<table border=\"1\">";
-					} else if($str[$i + 1] == '|') {
+					} else if($next == '|') {
 						$i++;
 						$html .= "<tr>";
-					} else if($str[$i + 1] == '-') {
+					} else if($next == '-') {
 						$i++;
 						$html .= "<td>";
-					} else if($str[$i + 1] == '(') {
+					} else if($next == '(') {
 						$url = "";
 						$complete = false;
 						for($j = $i + 2; $j < strlen($str); $j++)
@@ -81,7 +82,7 @@ class SmartMarkup {
 					}
 					else $html .= $str[$i];
 				} else if($str[$i] == '&') {
-					if($str[$i + 1] == '[') {
+					if($next == '[') {
 						$texts = "";
 						$size = 0;
 						$text = "";
@@ -147,7 +148,7 @@ class SmartMarkup {
 					}
 					$i += strlen($text . $url) + 3;
 					$html .= "<a href=\"" . $url . "\">" . self::toHTML($text) . "</a>";
-				} else if($str[$i + 1] == '.') {
+				} else if($next == '.') {
 					if($str[$i] == '/') {
 						$i++;
 						$html .= "</blockquote>";
@@ -167,7 +168,7 @@ class SmartMarkup {
 				else if($str[$i] == '>')
 					$html .= "&gt"; // aidoma
 				else if($str[$i] == '\n')
-					if($str[$i + 1] == '\n') {
+					if($next == '\n') {
 						$html .= "<p>";
 						$i++;
 					} else $html .= "<br>";

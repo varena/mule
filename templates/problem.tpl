@@ -1,10 +1,12 @@
 <h3>{$problem->name}</h3>
-<h4> {"Added by:"|_} 
-{if $author != null}
+
+<h4>
+  {"Added by:"|_} 
+  {if $author != null}
     {$author->getDisplayName()}
-{else}
+  {else}
     {"Unknown"|_}
-{/if}
+  {/if}
 </h4>
 
 {$problem->statement}

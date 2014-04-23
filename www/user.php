@@ -19,7 +19,7 @@ if(!$muser)
 
 $problems = Model::factory('Problem')->where('userId', $id)->where('status', Problem::STATUS_NORMAL)->order_by_asc('name')->find_many();
 
-SmartyWrap::assign('pageTitle', sprintf(_('Profil %s'), $muser->getDisplayName()));
+SmartyWrap::assign('pageTitle', sprintf(_('User profile: %s'), $muser->getDisplayName()));
 SmartyWrap::assign('theUser',$muser);
 SmartyWrap::assign('theProblems',$problems);
 SmartyWrap::display('user.tpl');

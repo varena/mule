@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Varena 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-19 21:03+0200\n"
-"PO-Revision-Date: 2014-04-19 21:04+0200\n"
-"Last-Translator: Zloteanu Anastasia <zlot.anastasia@gmail.com>\n"
+"POT-Creation-Date: 2014-04-23 17:26+0200\n"
+"PO-Revision-Date: 2014-04-23 17:27+0200\n"
+"Last-Translator: Cătălin Frâncu <cata@francu.com>\n"
 "Language-Team:  <dev@varena.ro>\n"
 "Language: ro_RO\n"
 "MIME-Version: 1.0\n"
@@ -50,18 +50,67 @@ msgstr "Acest nume de utilizator este deja folosit."
 msgid "The email address is invalid."
 msgstr "Adresa de e-mail este incorectă."
 
+#: www/index.php:7
+msgid "Home page"
+msgstr "Pagina principală"
+
+#: www/user.php:15
+msgid "Requested user not found."
+msgstr "Utilizatorul cerut nu există."
+
+#: www/user.php:22
+#, php-format
+msgid "User profile: %s"
+msgstr "Profilul utilizatorului %s"
+
 #: www/problem.php:10
 msgid "Requested problem not found."
 msgstr "Problema cerută nu există."
 
-#: www/problem.php:14
+#: www/problem.php:15
 #, php-format
 msgid "Problem: %s"
 msgstr "Problema %s"
 
-#: www/index.php:7
-msgid "Home page"
-msgstr "Pagina principală"
+#: www/round.php:10
+msgid "Requested round not found."
+msgstr "Runda cerută nu există."
+
+#: www/auth/login.php:22 templates/layout.tpl:25
+msgid "OpenID login"
+msgstr "conectare cu OpenID"
+
+#: www/auth/openidReturn.php:17
+msgid "New OpenID linked to your account."
+msgstr "Noul OpenID a fost legat de contul tău."
+
+#: www/auth/openidReturn.php:19
+msgid "This OpenID is already linked to your account."
+msgstr "Acest OpenID este deja legat de contul tău."
+
+#: www/auth/openidReturn.php:21
+msgid ""
+"This OpenID is already linked to another account. We cannot merge accounts. "
+"Please close the other account before linking the OpenID to this one."
+msgstr ""
+"Acest OpenID este deja legat de alt cont. Sistemul nu poate uni conturi. Te "
+"rugăm să închizi celălalt cont înainte de a lega OpenID-ul de acesta."
+
+#: www/auth/openidReturn.php:31
+msgid "Please pick a username to complete your login."
+msgstr "Alege-ți un nume de utilizator pentru a completa conectarea."
+
+#: www/auth/account.php:36
+msgid "Could not find your OpenID; did you really log in?"
+msgstr "Nu ți-am putut găsi OpenID-ul; chiar te-ai conectat?"
+
+#: www/auth/account.php:49
+msgid "Changes saved."
+msgstr "Am salvat modificările."
+
+#: www/auth/account.php:58 templates/layout.tpl:22
+msgid "my account"
+msgstr "contul meu"
 
 #: www/auth/emailLogin.php:17
 msgid "Please enter an email address."
@@ -97,41 +146,45 @@ msgstr "Conectare prin e-mail"
 msgid "Email login token"
 msgstr "Cod de conectare prin e-mail"
 
-#: www/auth/login.php:22 templates/layout.tpl:25
-msgid "OpenID login"
-msgstr "conectare cu OpenID"
+#: templates/index.tpl:1
+msgid "Varena is working for you!"
+msgstr "Varena funcționează!"
 
-#: www/auth/account.php:36
-msgid "Could not find your OpenID; did you really log in?"
-msgstr "Nu ți-am putut găsi OpenID-ul; chiar te-ai conectat?"
+#: templates/index.tpl:3
+msgid "Problems:"
+msgstr "Probleme:"
 
-#: www/auth/account.php:49
-msgid "Changes saved."
-msgstr "Am salvat modificările."
+#: templates/round.tpl:2
+msgid "Start date: "
+msgstr "Data de începere:"
 
-#: www/auth/account.php:58 templates/layout.tpl:22
-msgid "my account"
-msgstr "contul meu"
+#: templates/round.tpl:4
+msgid "Duration: "
+msgstr "Durată:"
 
-#: www/auth/openidReturn.php:17
-msgid "New OpenID linked to your account."
-msgstr "Noul OpenID a fost legat de contul tău."
+#: templates/round.tpl:6
+msgid "Creator: "
+msgstr "Creată de:"
 
-#: www/auth/openidReturn.php:19
-msgid "This OpenID is already linked to your account."
-msgstr "Acest OpenID este deja legat de contul tău."
+#: templates/round.tpl:10
+msgid "Unknown"
+msgstr "Necunoscut"
 
-#: www/auth/openidReturn.php:21
-msgid ""
-"This OpenID is already linked to another account. We cannot merge accounts. "
-"Please close the other account before linking the OpenID to this one."
-msgstr ""
-"Acest OpenID este deja legat de alt cont. Sistemul nu poate uni conturi. Te "
-"rugăm să închizi celălalt cont înainte de a lega OpenID-ul de acesta."
+#: templates/user.tpl:12
+msgid "Role:"
+msgstr "Rol:"
 
-#: www/auth/openidReturn.php:31
-msgid "Please pick a username to complete your login."
-msgstr "Alege-ți un nume de utilizator pentru a completa conectarea."
+#: templates/user.tpl:14
+msgid "administrator"
+msgstr "administrator"
+
+#: templates/user.tpl:16
+msgid "regular user"
+msgstr "utilizator obișnuit"
+
+#: templates/user.tpl:20
+msgid "Problems submitted:"
+msgstr "Probleme propuse:"
 
 #: templates/layout.tpl:19
 msgid "home"
@@ -144,14 +197,6 @@ msgstr "deconectare"
 #: templates/problem.tpl:2
 msgid "Added by:"
 msgstr "Adăugat de:"
-
-#: templates/index.tpl:1
-msgid "Varena is working for you!"
-msgstr "Varena funcționează!"
-
-#: templates/index.tpl:3
-msgid "Problems:"
-msgstr "Probleme:"
 
 #: templates/email/emailLogin.tpl:1
 msgid "Hi,"
@@ -177,50 +222,6 @@ msgstr "Mulțumiri,"
 #: templates/auth/beginAuth.tpl:1
 msgid "Redirecting you to your OpenID provider..."
 msgstr "Te redirectăm către furnizorul de OpenID..."
-
-#: templates/auth/account.tpl:6
-msgid "username"
-msgstr "nume de utilizator"
-
-#: templates/auth/account.tpl:9
-msgid "choose a username"
-msgstr "alege-ți un nume de utilizator"
-
-#: templates/auth/account.tpl:10
-msgid "required; 3-20 characters including letters, digits, '-', '.' and '_'"
-msgstr "obligatoriu; 3-20 caractere incluzând litere, cifre, '-', '.' și '_'"
-
-#: templates/auth/account.tpl:17
-msgid "name"
-msgstr "nume"
-
-#: templates/auth/account.tpl:19
-msgid "enter your full name"
-msgstr "introdu numele tău complet"
-
-#: templates/auth/account.tpl:20
-msgid "optional; 3-50 characters"
-msgstr "opțional; 3-50 caractere"
-
-#: templates/auth/account.tpl:24
-msgid "email"
-msgstr "e-mail"
-
-#: templates/auth/account.tpl:26
-msgid "enter your email address"
-msgstr "introdu adresa de e-mail"
-
-#: templates/auth/account.tpl:31
-msgid "save"
-msgstr "salvează"
-
-#: templates/auth/account.tpl:37
-msgid "OpenID identities"
-msgstr "Identități OpenID"
-
-#: templates/auth/account.tpl:45
-msgid "link another OpenID to this account"
-msgstr "leagă alt OpenID de acest cont"
 
 #: templates/auth/login.tpl:6
 msgid "login"
@@ -296,6 +297,10 @@ msgstr "Cum obțin un OpenID?"
 msgid "Check %sthe list of OpenID providers%s."
 msgstr "Consultă %slista de furnizori de OpenID%s."
 
+#: templates/auth/emailLogin.tpl:4
+msgid "email"
+msgstr "e-mail"
+
 #: templates/auth/emailLogin.tpl:10
 msgid ""
 "You can use this form to request a one-time token to login via email. This "
@@ -315,6 +320,50 @@ msgid ""
 msgstr ""
 "Contul tău a fost migrat de pe alt sistem și încă nu este legat de niciun "
 "OpenID."
+
+#: templates/auth/account.tpl:6
+msgid "username"
+msgstr "nume de utilizator"
+
+#: templates/auth/account.tpl:9
+msgid "choose a username"
+msgstr "alege-ți un nume de utilizator"
+
+#: templates/auth/account.tpl:10
+msgid "required; 3-20 characters including letters, digits, '-', '.' and '_'"
+msgstr "obligatoriu; 3-20 caractere incluzând litere, cifre, '-', '.' și '_'"
+
+#: templates/auth/account.tpl:17
+msgid "name"
+msgstr "nume"
+
+#: templates/auth/account.tpl:19
+msgid "enter your full name"
+msgstr "introdu numele tău complet"
+
+#: templates/auth/account.tpl:20
+msgid "optional; 3-50 characters"
+msgstr "opțional; 3-50 caractere"
+
+#: templates/auth/account.tpl:26
+msgid "enter your email address"
+msgstr "introdu adresa de e-mail"
+
+#: templates/auth/account.tpl:31
+msgid "save"
+msgstr "salvează"
+
+#: templates/auth/account.tpl:37
+msgid "OpenID identities"
+msgstr "Identități OpenID"
+
+#: templates/auth/account.tpl:45
+msgid "link another OpenID to this account"
+msgstr "leagă alt OpenID de acest cont"
+
+#, fuzzy
+#~ msgid "Probleme propuse:"
+#~ msgstr "Probleme:"
 
 #~ msgid "Lista de probleme:"
 #~ msgstr "Problem list:"

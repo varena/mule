@@ -10,11 +10,9 @@
           {"Unknown"|_}
     {/if}
 </h3>
-<h3> {if $theProblems}
-    {"Problems :"|_} 
-   {/if}
-</h3>
-<ul>
+{if $theProblems}
+  <h3>{"Problems:"|_}</h3>
+{/if}
 <ul>
   {foreach from=$theProblems item=p}
     <li><a href="{$wwwRoot}problem?id={$p->id}">{$p->name}</a></li>

@@ -8,22 +8,17 @@
       {$theUser->email}
 {/if}
 </h3>
-<h3> 
-{if $theUser->admin != null }
-	{if $theUser->admin == 1}
-   		{"Administrator"|_}
-    	 {else}
-      	 	{"Normal User"|_}
-	{/if}
-    {else}
-      {"Normal User null"|_}
+<h3>
+  {"Role:"|_}
+  {if $theUser->admin }
+ 		{"administrator"|_}
+  {else}
+ 	 	{"regular user"|_}
+  {/if}
+</h3>
+{if $theProblems !=null}
+  <h3>{"Problems submitted:"|_}</h3>
 {/if}
-</h3>
-<h3> {if $theProblems !=null}
-    {"Probleme propuse:"|_} 
-   {/if}
-</h3>
-<ul>
 <ul>
   {foreach from=$theProblems item=p}
     <li><a href="{$wwwRoot}problem?id={$p->id}">{$p->name}</a></li>

@@ -38,7 +38,11 @@ class SmartyWrap {
     foreach (func_get_args() as $id) {
       switch($id) {
       case 'jqueryui':           self::$cssFiles[1] = 'ui-lightness/jquery-ui-1.10.4.min.css'; break;
-      case 'main':               self::$cssFiles[2] = 'main.css?v=1'; break;
+      case 'markitup':
+        self::$cssFiles[2] = 'markitup/skin/style.css';
+        self::$cssFiles[3] = 'markitup/set/style.css'; 
+        break;
+      case 'main':               self::$cssFiles[4] = 'main.css?v=1'; break;
       default:
         FlashMessage::add("Cannot load CSS file {$id}");
         Util::redirect(Util::$wwwRoot);
@@ -52,7 +56,12 @@ class SmartyWrap {
       switch($id) {
       case 'jquery':           self::$jsFiles[1] = 'jquery-1.11.0.min.js'; break; 
       case 'jqueryui':         self::$jsFiles[2] = 'jquery-ui-1.10.4.min'; break;
-      case 'main':             self::$jsFiles[3] = 'main.js?v=1'; break;
+      case 'markitup':         
+        self::$jsFiles[3] = 'jquery.markitup.js';
+        self::$jsFiles[4] = 'markitup/set.js'; 
+        break;
+      case 'editProblem':      self::$jsFiles[5] = 'editProblem.js'; break;
+      case 'main':             self::$jsFiles[4] = 'main.js?v=1'; break;
       default:
         FlashMessage::add("Cannot load JS script {$id}");
         Util::redirect(Util::$wwwRoot);

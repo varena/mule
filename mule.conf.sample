@@ -23,3 +23,6 @@ replyToHeader = "Reply-To: Varena <email@example.com>"
 
 ; signature line at the end of outgoing emails
 signature = "The Varena team"
+
+[upload]
+path = uploads

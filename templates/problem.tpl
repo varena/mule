@@ -8,5 +8,7 @@
     {"Unknown"|_}
   {/if}
 </h4>
-
+<h5>
+<a href="{$wwwRoot}attachments?id={$problem->id}"> {"Attachments"|_} </a>
+<h5>
 {$problem->statement}

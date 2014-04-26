@@ -14,6 +14,8 @@ if($problemId != null && !$uploadingFile) { //View problem
 
   $attaches = Model::factory('Attachment')->where('probId', $problemId)->order_by_asc('created')->find_many();
 
+  SmartyWrap::addJs('timeago');
+
   SmartyWrap::assign('pageTitle', sprintf(_('Attachments: %s'), $p->name));
   SmartyWrap::assign('problem', $p);
   SmartyWrap::assign('attaches', $attaches);

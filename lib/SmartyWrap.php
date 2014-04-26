@@ -13,6 +13,8 @@ class SmartyWrap {
     self::assign('user', Session::getUser());
     self::addCss('jqueryui', 'main');
     self::addJs('jquery', 'jqueryui', 'main');
+
+    self::$theSmarty->registerPlugin('modifier', 'vdf', array('SmartyWrap', 'modifier_vdf'));
   }
 
   static function assign($name, $value) {
@@ -60,14 +62,38 @@ class SmartyWrap {
         self::$jsFiles[3] = 'jquery.markitup.js';
         self::$jsFiles[4] = 'markitup/set.js'; 
         break;
-      case 'editProblem':      self::$jsFiles[5] = 'editProblem.js'; break;
-      case 'main':             self::$jsFiles[6] = 'main.js?v=1'; break;
+      case 'timeago':         
+        self::$jsFiles[5] = 'jquery.timeago.js';
+        self::$jsFiles[6] = 'enable.timeago.js';
+        break;
+      case 'editProblem':      self::$jsFiles[7] = 'editProblem.js'; break;
+      case 'main':             self::$jsFiles[8] = 'main.js?v=1'; break;
       default:
         FlashMessage::add("Cannot load JS script {$id}");
         Util::redirect(Util::$wwwRoot);
       }
     }
   }
+
+  static function modifier_vdf($timestamp, $format=TimeUtil::FORMAT_SECOND, $short = true) {
+    if($format == TimeUtil::FORMAT_FUZZY) {
+        $isoTimestamp = date('c', $timestamp);
+        return '<time class="timeago" datetime="' . $isoTimestamp . '">Loading...</time>';
+    } else if($format == TimeUtil::FORMAT_DAY) {
+        $theFormat = Config::get('time.dayformat');
+    } else if($format == TimeUTIL::FORMAT_MINUTE) {
+        $theFormat = Config::get('time.minuteformat');
+    } else if($format == TimeUTIL::FORMAT_SECOND) {
+        $theFormat = Config::get('time.secondformat');
+    } else {
+        return "Date Format error";
+    }
+    if($short == false) {
+        $theFormat = str_replace("%E", "%e", strtoupper($theFormat));
+    }
+    return strftime($theFormat, $timestamp);
+}
+
 }
 
 ?>

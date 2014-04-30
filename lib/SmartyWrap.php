@@ -61,7 +61,7 @@ class SmartyWrap {
         self::$jsFiles[4] = 'markitup/set.js'; 
         break;
       case 'editProblem':      self::$jsFiles[5] = 'editProblem.js'; break;
-      case 'main':             self::$jsFiles[4] = 'main.js?v=1'; break;
+      case 'main':             self::$jsFiles[6] = 'main.js?v=1'; break;
       default:
         FlashMessage::add("Cannot load JS script {$id}");
         Util::redirect(Util::$wwwRoot);

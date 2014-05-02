@@ -81,6 +81,10 @@ class Util {
       self::redirect(self::$wwwRoot);
     }
   }
+  
+  static function getUploadedFile($name) {
+    return array_key_exists($name, $_FILES) ? $_FILES[$name] : null;
+  }
 
   static function redirect($location) {
     FlashMessage::saveToSession();

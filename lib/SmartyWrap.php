@@ -43,6 +43,7 @@ class SmartyWrap {
         self::$cssFiles[3] = 'markitup/set/style.css'; 
         break;
       case 'main':               self::$cssFiles[4] = 'main.css?v=1'; break;
+      case 'jcrop':              self::$cssFiles[5] = 'jquery.Jcrop.min.css'; break;
       default:
         FlashMessage::add("Cannot load CSS file {$id}");
         Util::redirect(Util::$wwwRoot);
@@ -62,6 +63,7 @@ class SmartyWrap {
         break;
       case 'editProblem':      self::$jsFiles[5] = 'editProblem.js'; break;
       case 'main':             self::$jsFiles[6] = 'main.js?v=1'; break;
+      case 'jcrop':            self::$jsFiles[7] = 'jquery.Jcrop.min.js'; break;
       default:
         FlashMessage::add("Cannot load JS script {$id}");
         Util::redirect(Util::$wwwRoot);

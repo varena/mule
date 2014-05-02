@@ -19,7 +19,7 @@ class Session {
   static function get($name, $default = null) {
     return (isset($_SESSION) && array_key_exists($name, $_SESSION)) ? $_SESSION[$name] : $default;
   }
-
+  
   static function set($var, $value) {
     // Lazy start of the session so we don't send a PHPSESSID cookie unless we have to
     if (!isset($_SESSION)) {

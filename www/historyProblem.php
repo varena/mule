@@ -19,8 +19,9 @@ if (!$mProblem) {
 $historyEntries = Model::factory('HistoryProblem')->where('problemId', $mProblem->id)->order_by_desc('id')->find_many();
 
 $entryAuthor = array();
-foreach($historyEntries as $key => $oneEntry)
+foreach ($historyEntries as $key => $oneEntry) {
   $entryAuthor[$key]=User::get_by_id($oneEntry->userId)->name;
+}
 
 SmartyWrap::assign('pageTitle', sprintf(_('History of problem %s'), $mProblem->name));
 SmartyWrap::assign('historyEntries', $historyEntries);

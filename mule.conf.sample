@@ -28,6 +28,6 @@ signature = "The Varena team"
 path = uploads
 
 [time]
-dayformat = “%e %b %g“
-minuteformat = “%e %b %g %H:%M“
-secondformat = “%e %b %g %H:%M:%S“
+dayformat = "%e %b %g"
+minuteformat = "%e %b %g %H:%M"
+secondformat = "%e %b %g %H:%M:%S"

@@ -2,7 +2,7 @@
 
 <ul>
   {foreach from=$attaches item=a}
-  <li><a href="{$wwwRoot}attachments.php?download={$a->id}">{$a->file}</a> Last modified: {$a->modified|varena_date_format:TimeUtil::FORMAT_FUZZY}</li>
+    <li><a href="{$wwwRoot}attachments.php?download={$a->id}">{$a->file}</a> {"Last modified:"|_} {$a->modified|vdf:TimeUtil::FORMAT_FUZZY}</li>
   {/foreach}
 </ul>
 

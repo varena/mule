@@ -1,4 +1,13 @@
-<h3>{"my account"|_}</h3>
+<h3><center>{"my account"|_}</center></h3>
+
+<form action="editAvatar" method="post" enctype="multipart/form-data">
+  <p class="paragraphTitle">avatar</p>
+  {include file="auth/avatar.tpl" user=$user}
+  <label for="avatarFileName">File:</label>
+  <input id="avatarFileName" type="file" name="avatarFileName">
+  <input id="avatarSubmit" type="submit" name="submit" value="Edit" disabled="disabled">
+  <a href="saveAvatar?delete=1" onclick="return confirm('Confirm deleting the image?');">Delete image</a>
+</form>
 
 <form method="post">
   <table class="form">
@@ -44,3 +53,25 @@
 
   <a href="login">{"link another OpenID to this account"|_}</a>
 {/if}
+
+<script type="text/javascript">
+{literal}
+  $('#avatarFileName').change(function() {
+    var error = '';
+    var allowedTypes = ['image/gif', 'image/jpeg', 'image/png'];
+    if (this.files[0].size > (1 << 21)) {
+      error = 'Maximum file size allowed is 2 MB.';
+    } else if (allowedTypes.indexOf(this.files[0].type) == -1) {
+      error = 'Invalid file type.';
+    }
+    if (error) {
+      $('#avatarFileName').val('');
+      $('#avatarSubmit').attr('disabled', 'disabled');
+      alert(error);
+    } else {
+      $('#avatarSubmit').removeAttr('disabled');
+    }
+    return false;
+  });
+{/literal}
+</script>

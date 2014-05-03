@@ -1,4 +1,4 @@
-<h3>{"Varena is working for you!"|_}</h3>
+<h3>{"Varena is working for you!"|_} {$smarty.now|vdf:TimeUtil::FORMAT_DAY:false}</h3>
 
 {"Problems:"|_}
 

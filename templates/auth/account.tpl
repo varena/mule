@@ -1,5 +1,14 @@
 <h3>{"my account"|_}</h3>
 
+<form action="editAvatar" method="post" enctype="multipart/form-data">
+  <p class="paragraphTitle">avatar</p>
+  {include file="auth/avatar.tpl" user=$user}
+  <label for="avatarFileName">File:</label>
+  <input id="avatarFileName" type="file" name="avatarFileName">
+  <input id="avatarSubmit" type="submit" name="submit" value="Edit" disabled="disabled">
+  <a href="saveAvatar?delete=1" onclick="return confirm('Confirm deleting the image?');">Delete image</a>
+</form>
+
 <form method="post">
   <table class="form">
     <tr>
@@ -44,3 +53,5 @@
 
   <a href="login">{"link another OpenID to this account"|_}</a>
 {/if}
+
+<script type="text/javascript" src="../js/addAvatar.js"></script>

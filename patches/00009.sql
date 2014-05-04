@@ -19,9 +19,7 @@ INSERT INTO `history_problem` VALUES (1,4,1,'Se dau douã numere; sã se calculeze
 (4,4,8,'Aceastaa **problema** este de *test*. ***Incercati*** sa nu o ~~distrugeti~~ stricati, si vedeti ca exista un [link](magico.co.vu) pe undeva pe aici. Poate ar fi si o imagine, daca n-ar fi &[30]prea mare textul&. Ah, uitati, am gasit-o: .(http://i.imgur.com/CRg25yC.png). Vreti si o tabela? Uitati acilea: .[.|.-uitati-..-ca se poate-.|..|.-sa avem-..-si tabele-.|.]. Si aveti si un blockquote: ./Alea iacta est/.',1398506726),
 (5,4,1,'Se dau douã numere; sã se calculeze suma acestora.',1397927202);
 
-TRIGGER problemModified
-	 AFTER UPDATE
-     ON `problem`
-     FOR EACH ROW begin
-          insert into history_problem set userId=NEW.modUserId, statement=NEW.statement, problemId=NEW.id, created=NEW.modified;
-END
+CREATE TRIGGER problemModified
+  AFTER UPDATE
+  ON `problem`
+  FOR EACH ROW insert into history_problem set userId=NEW.modUserId, statement=NEW.statement, problemId=NEW.id, created=NEW.modified;

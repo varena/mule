@@ -48,8 +48,8 @@ if (!move_uploaded_file($file['tmp_name'], $destFileName)) {
 chmod($destFileName, 0777);
 
 SmartyWrap::addCss('jcrop');
-SmartyWrap::addJs('jcrop');
-SmartyWrap::assign('page_title', "Editarea pozei de profil");
+SmartyWrap::addJs('jcrop', 'avatar');
+SmartyWrap::assign('page_title', "Edit profile picture");
 SmartyWrap::assign('rawFileName', "{$user->id}_raw.{$ext}");
 SmartyWrap::display('auth/editAvatar.tpl');
 

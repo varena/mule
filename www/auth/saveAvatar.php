@@ -32,7 +32,7 @@ if ($delete) {
 $rawFileList = glob($AVATAR_RAW_GLOB);
 if (empty($rawFileList)) {
   FlashMessage::add('Your profile picture is gone. Please reupload it.');
-  Util::redirect(Util::$wwwRoot);
+  Util::redirect(Util::$wwwRoot . 'auth/account');
 }
 $rawFileName = $rawFileList[0];
 

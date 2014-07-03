@@ -70,6 +70,10 @@ class SmartyWrap {
       case 'editProblem':      self::$jsFiles[7] = 'editProblem.js'; break;
       case 'main':             self::$jsFiles[8] = 'main.js?v=1'; break;
       case 'jcrop':            self::$jsFiles[9] = 'jquery.Jcrop.min.js'; break;
+      case 'avatar':
+        self::$jsFiles[10] = 'avatar/addAvatar.js';
+        self::$jsFiles[11] = 'avatar/editAvatar.js';
+        break;
       default:
         FlashMessage::add("Cannot load JS script {$id}");
         Util::redirect(Util::$wwwRoot);

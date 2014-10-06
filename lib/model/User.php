@@ -12,8 +12,7 @@ class User extends BaseObject {
       $s = $this->email;
     }
     return StringUtil::shortenString($s, 30);
-  }
-
+  } 
   /**
    * Validates a user for correctness. If $flashErrors is set, then sets flash error messages.
    */

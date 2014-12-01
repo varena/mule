@@ -20,6 +20,7 @@ fi
 # Make some directories world-writable
 echo "* running chmod on the templates_c directory"
 chmod 777 templates_c
+chmod 777 www/img/user
 
 # Symlink hooks unless they already exist
 if [ ! -e .git/hooks/pre-commit ]; then

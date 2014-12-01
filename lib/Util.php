@@ -82,6 +82,10 @@ class Util {
     }
   }
 
+  static function getUploadedFile($name) {
+    return array_key_exists($name, $_FILES) ? $_FILES[$name] : null;
+  }
+
   static function redirect($location) {
     FlashMessage::saveToSession();
     header("HTTP/1.1 301 Moved Permanently");
